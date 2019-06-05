@@ -11,12 +11,12 @@ import { Layout } from '../shared/datatypes';
 })
 export class SchemaGraphComponent implements OnInit {
 
-  private cy: any
+  private cy: any;
   private layout: Layout;
   private lastEvent: any;
 
   // @ViewChild('graph') graphElement: ElementRef;
-  @ViewChild('cyGraph', {static: true}) graphElementRef: ElementRef;
+  @ViewChild('cyGraph') graphElementRef: ElementRef;
 
   constructor(private graphService: GraphService) {
     if (cytoscape != null) {
@@ -49,7 +49,7 @@ export class SchemaGraphComponent implements OnInit {
     // target holds a reference to the originator
     // of the event (core or element)
     var evtTarget = event.target;
-  
+
     console.log('boxstart core');
     /*if( evtTarget === cy ){
       console.log('tap on background');
@@ -61,7 +61,7 @@ export class SchemaGraphComponent implements OnInit {
     // target holds a reference to the originator
     // of the event (core or element)
     var evtTarget = event.target;
-  
+
     console.log('boxend core');
     /*if( evtTarget === cy ){
       console.log('tap on background');
@@ -73,7 +73,7 @@ export class SchemaGraphComponent implements OnInit {
     // target holds a reference to the originator
     // of the event (core or element)
     var evtTarget = event.target;
-  
+
     console.log('select core ' + (event===this.lastEvent? 'add' : 'new'));
     this.lastEvent = event;
     /*if( evtTarget === cy ){
@@ -86,7 +86,7 @@ export class SchemaGraphComponent implements OnInit {
     // target holds a reference to the originator
     // of the event (core or element)
     var evtTarget = event.target;
-  
+
     //console.log('select node');
     /*if( evtTarget === cy ){
       console.log('tap on background');
@@ -144,21 +144,21 @@ export class SchemaGraphComponent implements OnInit {
   private createCY() {
     cytoscape({
       container: document.getElementById('cy'),
-  
+
       minZoom: 0.1,
       maxZoom: 100,
       wheelSensitivity: 0.1,
-  
+
       // panningEnabled: false,
       //boxSelectionEnabled: true,
       //autounselectify: false,
       //selectionType: 'additive',
       //autoungrabify: true,
-  
+
       layout: {
         name: 'dagre'
       },
-  
+
       style: [{
           selector: 'node',
           style: {
@@ -173,7 +173,7 @@ export class SchemaGraphComponent implements OnInit {
             'text-outline-color': '#222'
           }
         },
-  
+
         {
           selector: 'edge',
           style: {
@@ -183,7 +183,7 @@ export class SchemaGraphComponent implements OnInit {
             'target-arrow-color': '#9dbaea'
           }
         },
-  
+
         {
           selector: ':selected',
           style: {
@@ -193,7 +193,7 @@ export class SchemaGraphComponent implements OnInit {
             'source-arrow-color': 'black',
           }
         },
-  
+
         {
           selector: 'edge:selected',
           style: {
@@ -201,9 +201,9 @@ export class SchemaGraphComponent implements OnInit {
           }
         }
       ],
-  
+
       elements: {
-        //selectable: false, 
+        //selectable: false,
         grabbable: false,
         nodes: [{
           data: {
@@ -265,7 +265,7 @@ export class SchemaGraphComponent implements OnInit {
           }] // edges
       } // elements
     }); // cytoscape
-  
+
   }*/
 
 }

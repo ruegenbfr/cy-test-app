@@ -8,13 +8,16 @@ export interface StationData {
     name: string;
     incoming: string[];
     outgoing: string[];
-    isTransient: boolean;
+    isVisible: boolean;
+    isSelected: boolean;
     position: Position;
 }
 
 export interface DeliveryData {
     id: string;
     name: string;
+    isVisible: boolean;
+    isSelected: boolean;
     source: string;
     target: string;
 }
@@ -24,10 +27,31 @@ export interface FCLData {
     deliveries: DeliveryData[];
 }
 
+export interface HighlightingRule {
+    type: HighlightingType;
+    name: string;
+    isVisible: boolean;
+    color: string;
+    label: string;
+}
+
+export enum HighlightingType {
+    ApplyToAll = 'Apply to all' as any,
+    LogicalCondition = 'Logical Condition' as any,
+    ValueCondition = 'Value Condition' as any,
+    LogicalValueCondition = 'Logical Value Condition' as any
+}
+
 export interface FCLDataSource {
     rawData: any;
     fclData: FCLData;
     source: string;
+}
+
+export interface Color {
+    r: number;
+    g: number;
+    b: number;
 }
 
 export interface Layout {

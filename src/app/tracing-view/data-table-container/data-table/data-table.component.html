@@ -1,4 +1,22 @@
-<div id="container" #container>
+
+<ngx-datatable
+style="width: 90%"
+class="material"
+[rows]="rows"
+[columns]="columns"
+[columnMode]="'force'"
+[headerHeight]="50"
+[footerHeight]="50"
+[rowHeight]="'auto'"
+[limit]="5"
+[selected]="selectedRows"
+[selectionType]="'checkbox'"
+[selectAllRowsOnPage]="false"
+(select)='onSelect($event)'>
+</ngx-datatable>
+
+
+<!--<div id="container" #container>
   <div id="optionsBar">
     <button mat-raised-button (click)="onSelectAll()">Select All</button>
     <mat-form-field>
@@ -11,4 +29,4 @@
     <mat-checkbox [(ngModel)]="row.selected" (ngModelChange)="onSelect(row)" color="primary">
     </mat-checkbox>
   </ng-template>
-</div>
+</div>-->

@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <span>Table Settings</span>
+  </mat-toolbar>
+
+  <div class="sidenav-elements">
+    <mat-radio-group
+      [ngModel]="selectedTableMode"
+      (ngModelChange)="onTableModeChange()">
+      <mat-radio-button *ngFor="let mode of tableModes" [value]="mode">
+        {{mode}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>

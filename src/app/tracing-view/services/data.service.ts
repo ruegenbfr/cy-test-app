@@ -23,7 +23,8 @@ export class DataService {
         name: 'Station ' + i,
         incoming: [],
         outgoing: [],
-        isTransient: false,
+        isSelected: false,
+        isVisible: true,
         position: null
       });
     }
@@ -32,6 +33,8 @@ export class DataService {
       deliveries.push({
         id: 'D' + i,
         name: 'Product ' + i,
+        isSelected: false,
+        isVisible: true,
         source: 'S' + Math.floor(Math.random() * nStations),
         target: 'S' + Math.floor(Math.random() * nStations)
       });

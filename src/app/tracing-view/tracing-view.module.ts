@@ -1,19 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatToolbarModule, MatRadioModule } from '@angular/material';
 import { TracingViewComponent } from './tracing-view.component';
-import { SchemaGraphComponent } from './schema-graph/schema-graph/schema-graph.component';
+import { SchemaGraphComponent } from './schema-graph/schema-graph.component';
 import { GraphSettingsComponent } from './graph-settings/graph-settings.component';
-import { DataTableComponent } from './data-table/data-table.component';
-import { TableSettingsComponent } from './data-table/table-settings/table-settings.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { TableSettingsComponent } from './data-table-container/table-settings/table-settings.component';
+// import { DataTableContainerComponent } from './data-table-container/data-table-container.component';
+import { DataFilterComponent } from './data-table-container/data-filter/data-filter.component';
+import { DataTableContainerComponent } from './data-table-container/data-table-container.component';
+import { DataTableComponent } from './data-table-container/data-table/data-table.component';
 
 @NgModule({
-  declarations: [TracingViewComponent, SchemaGraphComponent, GraphSettingsComponent, DataTableComponent, TableSettingsComponent],
+  declarations: [
+      TracingViewComponent,
+      SchemaGraphComponent,
+      GraphSettingsComponent,
+      TableSettingsComponent,
+      DataTableContainerComponent,
+      DataTableComponent,
+      DataFilterComponent
+    ],
   imports: [
-    CommonModule
+    CommonModule, FormsModule, NgxDatatableModule, MatToolbarModule, MatRadioModule
   ],
   exports: [
     TracingViewComponent,
-    SchemaGraphComponent
+    SchemaGraphComponent,
+    DataTableContainerComponent
   ]
 })
 export class TracingViewModule { }
