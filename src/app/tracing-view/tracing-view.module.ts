@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ContextMenuModule } from 'ngx-contextmenu';
 import { MatToolbarModule, MatRadioModule } from '@angular/material';
 import { TracingViewComponent } from './tracing-view.component';
 import { SchemaGraphComponent } from './schema-graph/schema-graph.component';
@@ -11,6 +12,7 @@ import { TableSettingsComponent } from './data-table-container/table-settings/ta
 import { DataFilterComponent } from './data-table-container/data-filter/data-filter.component';
 import { DataTableContainerComponent } from './data-table-container/data-table-container.component';
 import { DataTableComponent } from './data-table-container/data-table/data-table.component';
+import { MyContextMenuComponent } from './my-context-menu/my-context-menu.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +22,17 @@ import { DataTableComponent } from './data-table-container/data-table/data-table
       TableSettingsComponent,
       DataTableContainerComponent,
       DataTableComponent,
-      DataFilterComponent
+      DataFilterComponent,
+      MyContextMenuComponent
     ],
   imports: [
-    CommonModule, FormsModule, NgxDatatableModule, MatToolbarModule, MatRadioModule
+    CommonModule, FormsModule, NgxDatatableModule, MatToolbarModule, MatRadioModule, ContextMenuModule.forRoot()
   ],
   exports: [
     TracingViewComponent,
     SchemaGraphComponent,
-    DataTableContainerComponent
+    DataTableContainerComponent,
+    MyContextMenuComponent
   ]
 })
 export class TracingViewModule { }
