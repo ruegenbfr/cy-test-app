@@ -3,6 +3,7 @@ import { GraphService } from '../services/graph.service';
 import cytoscape from 'cytoscape';
 import dagre from 'cytoscape-dagre';
 import { Layout } from '../shared/datatypes';
+import { MatMenuTrigger } from '@angular/material';
 
 @Component({
   selector: 'tracing-view-schema-graph',
@@ -17,6 +18,7 @@ export class SchemaGraphComponent implements OnInit {
 
   // @ViewChild('graph') graphElement: ElementRef;
   @ViewChild('cyGraph') graphElementRef: ElementRef;
+  @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger;
 
   constructor(private graphService: GraphService) {
     if (cytoscape != null) {
@@ -93,6 +95,9 @@ export class SchemaGraphComponent implements OnInit {
     } else {
       console.log('tap on some element');
     }*/
+  });
+  this.cy.on('cxttap',(event) => {
+    this.menuTrigger.openMenu();
   });
   }
 

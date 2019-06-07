@@ -2,9 +2,10 @@
   schema-graph works!
 </p>
 BeforeDiv
-<div #cyGraph id="cyGraph"></div>
+<div #cyGraph id="cyGraph" #menuTrigger="matMenuTrigger"  [matMenuTriggerFor]="graphMenu"></div>
+<app-mat-context-menu #graphMenu></app-mat-context-menu>
 AfterDiv
 <div>A:
-    
+
     <app-my-context-menu></app-my-context-menu>
     A</div>
